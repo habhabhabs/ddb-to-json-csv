@@ -37,7 +37,6 @@ if __name__ == "__main__":
     with open(('json/output-' + tableName + '-' + currentTime + '.json'), 'w') as f:
         json.dump(python_data, f, ensure_ascii=False, indent=4)
 
-
     # write to csv
     data_file = open(('csv/output-' + tableName + '-' + currentTime + '.csv'), 'w')
     csv_writer = csv.writer(data_file)

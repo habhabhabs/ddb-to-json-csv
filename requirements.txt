@@ -1,5 +1,5 @@
 boto3
 json
 csv
-datetime
+time
 dynamodb-json
