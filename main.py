@@ -4,8 +4,15 @@ from dynamodb_json import json_util as ddbjson
 import pandas as pd
 import json
 import csv
+import sys
 
-tableName = "mytt-dev-purchaseOrder"
+# configuration is made on aws cli
+
+if (len(sys.argv) == 1):
+    tableName = "mytt-dev-publicHoliday" # change here to indicate default table
+else:
+    tableName = str(sys.argv[1])
+
 currentTime = str(round(time.time()))
 
 def main():
@@ -43,13 +50,14 @@ if __name__ == "__main__":
     count = 0
 
     for item in python_data:
-        if count == 0:
+        if count == 0: # write header if first row
             header = item.keys()
             csv_writer.writerow(header)
             count += 1
 
         csv_writer.writerow(item.values())
 
+        # print every record
         print("Item: " + str(item))
         print
     
