@@ -1,7 +1,6 @@
 import boto3
 import time
 from dynamodb_json import json_util as ddbjson
-import pandas as pd
 import json
 import csv
 import sys
