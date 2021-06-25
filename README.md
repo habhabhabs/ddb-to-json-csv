@@ -1,4 +1,4 @@
-# DynamoDB to JSON/CSV converter for MSS Nexus data
+# DynamoDB to JSON/CSV converter for Nexus data
 _23 Jun 2021_
 
 ## Step 1: Installation Instructions
