@@ -10,6 +10,8 @@ Ensure that `aws` is installed on the system, and that following values are conf
 * `SECRET_ACCESS_KEY`
 * `REGION`
 
+`aws` CLI: https://aws.amazon.com/cli/
+
 ## Step 2: Configuration
 Ensure that `tableName` variable is adjusted. (if no arguments provided)
 A custom table name can be defined in the first argument (shown in Step 3).
