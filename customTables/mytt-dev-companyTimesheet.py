@@ -50,8 +50,19 @@ if __name__ == "__main__":
     recordItemCount = 0
     for item in python_data:
         # fetch details of the particular timesheet (all parent items)
-        itemDup = copy.copy(item)  # to prevent overwriting original json object (copy value not reference)
+        itemDup = copy.copy(item)  # dereference item pointer by copying item to memory (duplicate)
         itemDup["dailyRecord"] = "refer to internal-record"
+
+        # check for possible broken records
+        if not 'supervisorApprovalName' in itemDup:
+            itemDup["supervisorApprovalName"] = ""
+        if not 'supervisorApprovalEmployeeNo' in itemDup:
+            itemDup["supervisorApprovalEmployeeNo"] = ""
+        if not 'supervisorApprovalId' in itemDup:
+            itemDup["supervisorApprovalId"] = ""
+        itemDup = json.dumps(itemDup, sort_keys=True) # convert unsorted json object to sorted json string
+        itemDup = json.loads(itemDup) # convert back json string to json object
+
         if itemCount == 0:
             header = itemDup
             internal_timesheet_csv_writer.writerow(header)

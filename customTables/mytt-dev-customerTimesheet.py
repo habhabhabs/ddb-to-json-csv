@@ -1,6 +1,7 @@
 import boto3
 import time
 from dynamodb_json import json_util as ddbjson
+from collections import OrderedDict
 import json
 import csv
 import sys
@@ -50,9 +51,10 @@ if __name__ == "__main__":
     itemCount = 0
     recordItemCount = 0
     for item in python_data:
+        itemDup = copy.copy(item) # dereference item pointer by copying item to memory (duplicate)
         # fetch details of the particular timesheet (all parent items)
-        itemDup = json.dumps(copy.copy(item), sort_keys=True)  # to prevent overwriting original json object (copy value not reference)
         itemDup["dailyRecord"] = "refer to internal-record"
+        
         # check for possible broken records
         if not 'supervisorApprovalName' in itemDup:
             itemDup["supervisorApprovalName"] = ""
@@ -60,12 +62,12 @@ if __name__ == "__main__":
             itemDup["supervisorApprovalEmployeeNo"] = ""
         if not 'supervisorApprovalId' in itemDup:
             itemDup["supervisorApprovalId"] = ""
-
+        itemDup = json.dumps(itemDup, sort_keys=True) # convert unsorted json object to sorted json string
+        itemDup = json.loads(itemDup) # convert back json string to json object
         
-        
-        # if itemCount == 0:
-        header = itemDup
-        internal_timesheet_csv_writer.writerow(header)
+        if itemCount == 0:
+            header = itemDup
+            internal_timesheet_csv_writer.writerow(header)
         internal_timesheet_csv_writer.writerow(itemDup.values())
         itemCount += 1
 
