@@ -24,3 +24,6 @@ To run this application where table is no default value, of `mytt-dev-project`
 The files will be in the respective directory:
 * CSV Files: `csv/(file).csv`
 * JSON Files: `json/(file).json`
+* Main script: `main.py`
+* Custom table scripts: `customTables/`
+  * These custom tables are derived off the main script.
