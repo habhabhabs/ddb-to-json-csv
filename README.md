@@ -27,3 +27,5 @@ The files will be in the respective directory:
 * Main script: `main.py`
 * Custom table scripts: `customTables/`
   * These custom tables are derived off the main script.
+
+License: MIT
