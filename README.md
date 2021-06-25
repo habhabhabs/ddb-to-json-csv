@@ -12,8 +12,11 @@ Ensure that `aws` is installed on the system, and that following values are conf
 
 Link to get the `aws` CLI: https://aws.amazon.com/cli/
 
+Last tested on `aws` CLI version `aws-cli/1.19.96` `botocore/1.20.96` (25 Jun 2021)
+
 ## Step 2: Configuration
 Ensure that `tableName` variable is adjusted. (if no arguments provided)
+
 A custom table name can be defined in the first argument (shown in Step 3).
 
 ## Step 3: Execution
