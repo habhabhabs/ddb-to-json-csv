@@ -4,6 +4,7 @@ from dynamodb_json import json_util as ddbjson
 import json
 import csv
 import sys
+import os
 
 # configuration is made on aws cli
 
@@ -36,6 +37,13 @@ def main():
 
 if __name__ == "__main__":
     data = main()
+
+    if not os.path.exists('../json/'):
+        os.makedirs('../json/', exist_ok=True)
+    if not os.path.exists('../csv/'):
+        os.makedirs('../csv/', exist_ok=True)
+    if not os.path.exists('../test/'):
+        os.makedirs('../test/', exist_ok=True)
 
     python_data = ddbjson.loads(data)
 
