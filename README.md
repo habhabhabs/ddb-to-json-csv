@@ -12,7 +12,7 @@ Ensure that `aws` is installed on the system, and that following values are conf
 
 Link to get the `aws` CLI: https://aws.amazon.com/cli/
 
-Last tested on `aws` CLI version `aws-cli/1.19.96` `botocore/1.20.96` (25 Jun 2021)
+Last tested on `aws` CLI version `aws-cli/2.2.17 Python/3.8.8 Darwin/20.5.0 exe/x86_64 prompt/off` (13 Jul 2021)
 
 ## Step 2: Configuration
 Ensure that `tableName` variable is adjusted. (if no arguments provided)
