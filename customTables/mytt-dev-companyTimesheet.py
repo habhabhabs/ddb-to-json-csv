@@ -1,5 +1,6 @@
 import boto3
 import time
+import datetime
 from dynamodb_json import json_util as ddbjson
 import json
 import csv
@@ -9,12 +10,23 @@ import os
 
 # configuration is made on aws cli
 
-if (len(sys.argv) == 1):
-    tableName = "mytt-dev-companyTimesheet" # change here to indicate default table
+if (len(sys.argv) >= 2 and str(sys.argv[1]) == '--iso'):
+    # ISO
+    currentTime = datetime.datetime.now().isoformat()
 else:
-    tableName = str(sys.argv[1])
+    # epoch
+    currentTime = str(round(time.time()))
 
-currentTime = str(round(time.time()))
+if (len(sys.argv) == 2 and str(sys.argv[1]) == '--iso'):
+    tableName = "mytt-uat-companyTimesheet" # change here to indicate default table
+elif (len(sys.argv) == 2):
+    tableName = str(sys.argv[1])
+elif (len(sys.argv) == 3):
+    tableName = str(sys.argv[2])
+else:
+    print("Error! Argument invalid")
+    exit()
+
 
 def main():
     dynamodb = boto3.client('dynamodb')

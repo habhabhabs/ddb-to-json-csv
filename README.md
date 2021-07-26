@@ -26,6 +26,9 @@ To run this application where `tableName` is the default table:
 To run this application where table is no default value, of `mytt-dev-project`
 > `python3 main.py mytt-dev-project`
 
+To set the timestamp to ISO8601 format, add the `--iso` flag in the argument
+> `python3 main.py --iso mytt-dev-project`
+
 The files will be in the respective directory:
 * CSV Files: `csv/(file).csv`
 * JSON Files: `json/(file).json`
