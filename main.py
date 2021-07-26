@@ -16,9 +16,9 @@ else:
     # epoch
     currentTime = str(round(time.time()))
 
-if (len(sys.argv) == 2 and str(sys.argv[1]) == '--iso'):
+if (len(sys.argv) == 2 and str(sys.argv[1]) == '--iso') or (len(sys.argv) == 1):
     tableName = "mytt-uat-publicHoliday" # change here to indicate default table
-elif (len(sys.argv) == 2):
+elif (len(sys.argv) == 1 or len(sys.argv) == 2):
     tableName = str(sys.argv[1])
 elif (len(sys.argv) == 3):
     tableName = str(sys.argv[2])

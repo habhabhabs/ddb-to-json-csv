@@ -18,9 +18,9 @@ else:
     # epoch
     currentTime = str(round(time.time()))
 
-if (len(sys.argv) == 2 and str(sys.argv[1]) == '--iso'):
+if (len(sys.argv) == 2 and str(sys.argv[1]) == '--iso') or (len(sys.argv) == 1):
     tableName = "mytt-uat-customerTimesheet" # change here to indicate default table
-elif (len(sys.argv) == 2):
+elif (len(sys.argv) == 1 or len(sys.argv) == 2):
     tableName = str(sys.argv[1])
 elif (len(sys.argv) == 3):
     tableName = str(sys.argv[2])
@@ -79,6 +79,10 @@ if __name__ == "__main__":
             itemDup["supervisorApprovalEmployeeNo"] = ""
         if not 'supervisorApprovalId' in itemDup:
             itemDup["supervisorApprovalId"] = ""
+        if not 'customerApprovalId' in itemDup:
+            itemDup["customerApprovalId"] = ""
+        if not 'customerApprovalName' in itemDup:
+            itemDup["customerApprovalName"] = ""
         itemDup = json.dumps(itemDup, sort_keys=True) # convert unsorted json object to sorted json string
         itemDup = json.loads(itemDup) # convert back json string to json object
         
