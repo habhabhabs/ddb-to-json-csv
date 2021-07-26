@@ -95,7 +95,8 @@ if __name__ == "__main__":
         # fetch all day records in all timesheets (all child items)
         if (item["dailyRecord"] != None):
             for itemDR in item["dailyRecord"]:
-                itemDR["reportMonth"] = item["reportMonth"]                
+                itemDR["reportMonth"] = item["reportMonth"]
+                itemDR["id"] = item["id"]                
                 if recordItemCount < 1:
                     header = itemDR
                     internal_timesheet_record_csv_writer.writerow(header)
